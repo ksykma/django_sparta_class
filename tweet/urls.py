@@ -8,4 +8,6 @@ urlpatterns = [
     path('tweet/<int:id>',views.detail_tweet,name='detail-tweet'),
     path('tweet/comment/<int:id>',views.write_comment, name='write-comment'),
     path('tweet/comment/delete/<int:id>',views.delete_comment, name='delete-comment'),
+    path('tag/', views.TagCloudTV.as_view(), name='tag_cloud'),  # 태그로 접근하면 이 함수가 실행
+    path('tag/<str:tag>/', views.TaggedObjectLV.as_view(), name='tagged_object_list'),  # 태그 안에있는 문자열로 접근하면 이 함수가 실행
 ]
