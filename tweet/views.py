@@ -24,7 +24,6 @@ def tweet(request):
         user = request.user
         content = request.POST.get('my-content','')
         tags = request.POST.get('tag', '').split(',')
-        
         if content == '':
             all_tweet = TweetModel.objects.all().order_by('-created_at')
             return render(request, 'tweet/home.html', {'error':'글은 공백일 수 없습니다!', 'tweet':all_tweet})
@@ -35,7 +34,7 @@ def tweet(request):
                 if tag != '':
                     my_tweet.tags.add(tag)
             my_tweet.save()
-            return render(request, '/tweet')
+            return redirect('/tweet')
 
 
 @login_required    
