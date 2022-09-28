@@ -40,7 +40,13 @@ INSTALLED_APPS = [
     'user',
     'tweet',
     'restaurant',
+    'taggit.apps.TaggitAppConfig',
+    'taggit_templatetags2',
 ]
+
+TAGGIT_CASE_INSENSITIVE = True
+TAGGIT_LIMIT = 50
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
